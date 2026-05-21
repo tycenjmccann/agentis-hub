@@ -1,0 +1,118 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --card-bg: #1a1a25;
+  --card-border: #2a2a3a;
+  --card-header-bg: #12121a;
+  --card-text: #d1d5db;
+  --card-heading: #f8f9fa;
+  --card-code-bg: #12121a;
+  --card-code-inline-bg: #222230;
+  --card-code-inline-color: #7dd3fc;
+}
+
+body {
+  background-color: #0a0a0f;
+  color: #d1d5db;
+}
+
+/* Agent Output Card - Custom Scrollbar */
+.agent-output-card-body::-webkit-scrollbar {
+  width: 6px;
+}
+
+.agent-output-card-body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.agent-output-card-body::-webkit-scrollbar-thumb {
+  background: #2a2a3a;
+  border-radius: 3px;
+}
+
+.agent-output-card-body::-webkit-scrollbar-thumb:hover {
+  background: #38bdf8;
+}
+
+/* Code block horizontal scroll */
+.code-block-content::-webkit-scrollbar {
+  height: 4px;
+}
+
+.code-block-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.code-block-content::-webkit-scrollbar-thumb {
+  background: #2a2a3a;
+  border-radius: 2px;
+}
+
+/* Highlight.js theme overrides for brand */
+.hljs {
+  background: transparent !important;
+  color: #d1d5db !important;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-built_in {
+  color: #c084fc !important;
+}
+
+.hljs-string,
+.hljs-attr {
+  color: #86efac !important;
+}
+
+.hljs-number,
+.hljs-literal {
+  color: #fbbf24 !important;
+}
+
+.hljs-comment {
+  color: #6b7280 !important;
+  font-style: italic;
+}
+
+.hljs-function,
+.hljs-title {
+  color: #38bdf8 !important;
+}
+
+.hljs-variable,
+.hljs-params {
+  color: #f8f9fa !important;
+}
+
+.hljs-type,
+.hljs-class {
+  color: #fcd34d !important;
+}
+
+.hljs-meta {
+  color: #9ca3af !important;
+}
+
+.hljs-property {
+  color: #7dd3fc !important;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .animate-card-enter,
+  .animate-card-exit {
+    animation: none !important;
+    transition: opacity 100ms ease !important;
+  }
+
+  .animate-card-enter {
+    opacity: 1;
+  }
+
+  .animate-card-exit {
+    opacity: 0;
+  }
+}
