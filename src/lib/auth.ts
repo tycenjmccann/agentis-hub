@@ -1,8 +1,6 @@
 import { NextRequest } from 'next/server';
 import jwt from 'jsonwebtoken';
 
-const JWT_SECRET = process.env.JWT_SECRET || '';
-
 export interface AuthUser {
   userId: string;
 }
@@ -43,8 +41,11 @@ export function authenticateRequest(
     };
   }
 
+  // Read secret at call time so test env stubs take effect
+  const secret = process.env.JWT_SECRET || '';
+
   try {
-    const decoded = jwt.verify(token, JWT_SECRET) as jwt.JwtPayload;
+    const decoded = jwt.verify(token, secret) as jwt.JwtPayload;
 
     if (!decoded.sub) {
       return {
