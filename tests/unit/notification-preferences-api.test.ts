@@ -27,7 +27,7 @@ function createRequest(method: string, body?: unknown): NextRequest {
   if (body !== undefined) {
     init.body = JSON.stringify(body);
   }
-  return new NextRequest(url, init);
+  return new NextRequest(url, init as any);
 }
 
 describe('GET /api/notifications/preferences', () => {
@@ -210,7 +210,7 @@ describe('PUT /api/notifications/preferences', () => {
         Authorization: 'Bearer test-token',
       },
       body: 'not valid json{{{',
-    });
+    } as any);
 
     const response = await PUT(request);
     const data = await response.json();
