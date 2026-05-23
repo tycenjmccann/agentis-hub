@@ -37,7 +37,7 @@ function getInitialTheme(): { theme: Theme; isSystem: boolean } {
 
   if (typeof window !== 'undefined' && window.matchMedia) {
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    return { theme: prefersDark ? 'dark' : 'dark', isSystem: true };
+    return { theme: prefersDark ? 'dark' : 'light', isSystem: true };
   }
 
   return { theme: 'dark', isSystem: true };
